@@ -1,12 +1,24 @@
 <template>
   <div>
-    <button><span></span></button>
+    <button :class="{checked:value}" @click="toggle">
+      <span></span>
+    </button>
+    <div>{{value}}</div>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'Switch'
+    name: 'Switch',
+    props:{
+      value:Boolean
+    },
+    setup(props,context){
+      const toggle = () => {
+        context.emit('input',!props.value)
+      }
+      return{toggle}
+    }
   }
 </script>
 
@@ -17,7 +29,7 @@
     height: $h;
     width: $h*2;
     border: none;
-    background: blue;
+    background: gray;
     border-radius: $h/2;
     position: relative;
   }
@@ -29,5 +41,15 @@
     width: $h2;
     background:white;
     border-radius: $h2 / 2;
+    transition: left 250ms;
+  }
+  button.checked{
+    background: #409eff;
+  }
+  button.checked > span{
+    left: calc(100% - #{$h2} - 2px);
+  }
+  button:focus{
+    outline: none;
   }
 </style>

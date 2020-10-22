@@ -1,75 +1,14 @@
 <template>
   <div>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
-    <p>Switch</p>
+    <Switch/>
   </div>
 </template>
 
 <script>
+  import Switch from '../lib/Switch.vue'
   export default {
-    name: 'SwitchDemo'
+    name: 'SwitchDemo',
+    components: {Switch}
   }
 </script>
 

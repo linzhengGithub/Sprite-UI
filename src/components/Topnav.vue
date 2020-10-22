@@ -31,10 +31,11 @@
 
 <style lang="scss" scoped>
   .topnav {
-    background: pink;
+    background: white;
     display: flex;
     padding: 16px;
-    position: relative;
+    position: fixed;
+    width: 100%;
     z-index: 10;
     > .logo {
       max-width: 6em;

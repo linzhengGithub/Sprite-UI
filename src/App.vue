@@ -1,9 +1,5 @@
 <template>
-<div>导航栏 |
-    <router-link to="/">HelloWorld | </router-link>
-    <router-link to="/xxx">Test</router-link>
-</div>
-<router-view />
+    <router-view />
 </template>
 
 <script>

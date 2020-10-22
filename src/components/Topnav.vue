@@ -1,7 +1,7 @@
 <template>
   <div class="topnav">
     <div class="logo">
-      LOGO
+      <i>Sprite</i>
     </div>
     <ul class="menu">
       <li>菜单1</li>

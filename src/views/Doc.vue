@@ -49,7 +49,7 @@
     }
     > .content{
       flex-grow: 1;
-      padding-top: 58px;
+      padding-top: 50px;
       padding-left: 156px;
       @media (max-width: 500px) {
         padding-left: 0;

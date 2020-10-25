@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button :class="{checked:value}" @click="toggle">
+    <button class="sprite-switch" :class="{'sprite-checked':value}" @click="toggle">
       <span></span>
     </button>
   </div>
@@ -24,7 +24,7 @@
 <style lang="scss">
   $h: 22px;
   $h2: $h - 4px;
-  button {
+  .sprite-switch {
     height: $h;
     width: $h*2;
     border: none;
@@ -41,7 +41,7 @@
       border-radius: $h2 / 2;
       transition: left 250ms;
     }
-    &.checked {
+    &.sprite-checked {
       background: #409eff;
       > span {
         left: calc(100% - #{$h2} - 2px);
@@ -55,7 +55,7 @@
         width: $h2 + 4px;
       }
     }
-    &.checked:active {
+    &.sprite-checked:active {
       > span {
         width: $h2 + 4px;
         margin-left: -4px;

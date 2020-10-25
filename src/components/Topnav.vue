@@ -31,7 +31,7 @@
 
 <style lang="scss" scoped>
   .topnav {
-    background: #f3f4f6;
+    background: #f4f5f6;
     display: flex;
     padding: 16px;
     position: fixed;
@@ -40,6 +40,9 @@
     > .logo {
       max-width: 6em;
       margin-right: auto;
+      > i {
+        color: #39b54a;
+      }
     }
     > .menu {
       display: flex;

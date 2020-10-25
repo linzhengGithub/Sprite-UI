@@ -31,7 +31,7 @@
 
 <style lang="scss" scoped>
   .topnav {
-    background: white;
+    background: #f3f4f6;
     display: flex;
     padding: 16px;
     position: fixed;

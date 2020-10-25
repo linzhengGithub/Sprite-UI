@@ -1,7 +1,18 @@
 <template>
   <h1>示例</h1>
   <div>
-    <Button>What Up!</Button>
+    <Button>
+      default
+    </Button>
+    <Button theme="button">
+      button
+    </Button>
+    <Button theme="link">
+      link
+    </Button>
+    <Button theme="text">
+      text
+    </Button>
   </div>
 </template>
 
@@ -9,7 +20,10 @@
   import Button from '../lib/Button.vue'
   export default {
     name: 'ButtonDemo',
-    components:{Button}
+    components:{Button},
+    setup(){
+
+    }
   }
 </script>
 

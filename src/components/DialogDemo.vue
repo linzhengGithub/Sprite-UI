@@ -14,13 +14,16 @@
     </Dialog>
   </div>
   <h1>实例2</h1>
-
+  <div>
+    <Button @click="showDialog">showDialog</Button>
+  </div>
 </template>
 
 <script>
   import Dialog from '../lib/Dialog.vue'
   import Button from '../lib/Button.vue'
   import {ref} from 'vue'
+  import {openDialog} from '../lib/openDialog'
   export default {
     name: 'DialogDemo',
     components: {Button, Dialog},
@@ -34,7 +37,20 @@
       }
       const f2 = () => {
       }
-      return {x,toggle,f1,f2}
+      const showDialog = () => {
+        openDialog({
+          title:'温馨提示',
+          content:'这是一个对话框.',
+          ok:()=>{
+            console.log('ok')
+          },
+          cancel:()=>{
+            console.log('cancel')
+          },
+          closeOnclickOverlay:false
+        })
+      }
+      return {x,toggle,f1,f2,showDialog}
     }
   }
 </script>

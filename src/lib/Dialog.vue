@@ -58,8 +58,9 @@
         }
       }
       const cancel = () => {
-        context.emit('cancel')
-        close()
+        if(props.cancel?.() !== false){
+          close()
+        }
       }
       return {close,onclickOverlay,ok,cancel}
     }

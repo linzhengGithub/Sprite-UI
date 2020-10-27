@@ -1,7 +1,11 @@
 <template>
   <div>
     <Button @click="toggle">Dialog</Button>
-    <Dialog v-model:visible="x"></Dialog>
+    <Dialog v-model:visible="x" :close-onclick-overlay="false"
+    :ok="f1" :cancel="f2"
+    >
+
+    </Dialog>
   </div>
 </template>
 
@@ -17,7 +21,12 @@
       const toggle = () => {
         x.value = !x.value
       }
-      return {x,toggle}
+      const f1 = () => {
+        return false
+      }
+      const f2 = () => {
+      }
+      return {x,toggle,f1,f2}
     }
   }
 </script>

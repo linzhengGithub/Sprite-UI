@@ -1,6 +1,6 @@
 <template>
   <template v-if="visible">
-    <div class="sprite-dialog-overlay"></div>
+    <div class="sprite-dialog-overlay" @click="onclickOverlay"></div>
     <div class="sprite-dialog-wrapper">
       <div class="sprite-dialog">
         <header>标题 <span class="sprite-dialog-close" @click="close"></span></header>
@@ -30,13 +30,33 @@
       closeOnclickOverlay:{
         type:Boolean,
         default:true
+      },
+      ok:{
+        type:Function
+      },
+      cancel:{
+        type:Function
       }
     },
     setup(props,context){
       const close = () => {
         context.emit('update:visible',false)
       }
-      return {close}
+      const onclickOverlay = () => {
+        if(props.closeOnclickOverlay){
+          close()
+        }
+      }
+      const ok = () => {
+        if(props.ok?.() !== false){//等于props.ok && props.ok !== false
+          close()
+        }
+      }
+      const cancel = () => {
+        context.emit('cancel')
+        close()
+      }
+      return {close,onclickOverlay,ok,cancel}
     }
   }
 </script>
@@ -48,7 +68,7 @@
     background: white;
     border-radius: $radius;
     box-shadow: 0 0 3px fade_out(black, 0.5);
-    min-width: 15em;
+    min-width: 20em;
     max-width: 90%;
     &-overlay {
       position: fixed;

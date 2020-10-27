@@ -1,25 +1,43 @@
 <template>
-  <div class="sprite-dialog-overly"></div>
-  <div class="sprite-dialog-wrapper">
-    <div class="sprite-dialog">
-      <header>标题 <span class="sprite-dialog-close"></span></header>
-      <main>
-        <p>第一行字</p>
-        <p>第二行字</p>
-      </main>
-      <footer>
-        <Button level="main">OK</Button>
-        <Button>Cancel</Button>
-      </footer>
+  <template v-if="visible">
+    <div class="sprite-dialog-overlay"></div>
+    <div class="sprite-dialog-wrapper">
+      <div class="sprite-dialog">
+        <header>标题 <span class="sprite-dialog-close" @click="close"></span></header>
+        <main>
+          <p>第一行字</p>
+          <p>第二行字</p>
+        </main>
+        <footer>
+          <Button level="main" @click="ok">确定</Button>
+          <Button @click="cancel">取消</Button>
+        </footer>
+      </div>
     </div>
-  </div>
+  </template>
 </template>
 
 <script>
   import Button from './Button.vue'
   export default {
     name: 'Dialog',
-    components: {Button}
+    components: {Button},
+    props:{
+      visible:{
+        type:Boolean,
+        default:false
+      },
+      closeOnclickOverlay:{
+        type:Boolean,
+        default:true
+      }
+    },
+    setup(props,context){
+      const close = () => {
+        context.emit('update:visible',false)
+      }
+      return {close}
+    }
   }
 </script>
 

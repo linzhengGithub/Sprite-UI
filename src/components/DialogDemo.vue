@@ -1,4 +1,5 @@
 <template>
+  <h1>示例1</h1>
   <div>
     <Button @click="toggle">Dialog</Button>
     <Dialog v-model:visible="x" :close-onclick-overlay="false"
@@ -12,6 +13,8 @@
       </template>
     </Dialog>
   </div>
+  <h1>实例2</h1>
+
 </template>
 
 <script>

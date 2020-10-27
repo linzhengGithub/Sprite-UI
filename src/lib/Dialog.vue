@@ -1,18 +1,20 @@
 <template>
   <template v-if="visible">
-    <div class="sprite-dialog-overlay" @click="onclickOverlay"></div>
-    <div class="sprite-dialog-wrapper">
-      <div class="sprite-dialog">
-        <header><slot name="title"/> <span class="sprite-dialog-close" @click="close"></span></header>
-        <main>
-          <slot name="content"/>
-        </main>
-        <footer>
-          <Button level="main" @click="ok">确定</Button>
-          <Button @click="cancel">取消</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="sprite-dialog-overlay" @click="onclickOverlay"></div>
+      <div class="sprite-dialog-wrapper">
+        <div class="sprite-dialog">
+          <header><slot name="title"/> <span class="sprite-dialog-close" @click="close"></span></header>
+          <main>
+            <slot name="content"/>
+          </main>
+          <footer>
+            <Button level="main" @click="ok">确定</Button>
+            <Button @click="cancel">取消</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 

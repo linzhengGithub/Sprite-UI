@@ -3,10 +3,9 @@
     <div class="sprite-dialog-overlay" @click="onclickOverlay"></div>
     <div class="sprite-dialog-wrapper">
       <div class="sprite-dialog">
-        <header>标题 <span class="sprite-dialog-close" @click="close"></span></header>
+        <header><slot name="title"/> <span class="sprite-dialog-close" @click="close"></span></header>
         <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
+          <slot name="content"/>
         </main>
         <footer>
           <Button level="main" @click="ok">确定</Button>
@@ -23,6 +22,10 @@
     name: 'Dialog',
     components: {Button},
     props:{
+      title:{
+        type:String,
+        default:'提示'
+      },
       visible:{
         type:Boolean,
         default:false

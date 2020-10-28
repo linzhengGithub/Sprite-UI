@@ -1,18 +1,24 @@
 <template>
   <div class="sprite-tabs">
     <div class="sprite-tabs-nav">
-      <div class="sprite-tabs-nav-item" v-for="(t,index) in title" :key="index">{{t}}</div>
+      <div class="sprite-tabs-nav-item" v-for="(t,index) in title" :key="index" :class="{selected: t === selected}" @click="select(t)">{{t}}</div>
     </div>
     <div class="sprite-tabs-content">
-      <component class="sprite-tabs-content-item" v-for="(c,index) in defaults " :key="index" :is="c"></component>
+      <component class="sprite-tabs-content-item" :is="current" :key="current.props.title"></component>
     </div>
   </div>
 </template>
 
 <script>
+  import {computed} from 'vue'
   import Tab from './Tab.vue'
   export default {
     name: 'Tabs',
+    props:{
+      selected:{
+        type:String
+      }
+    },
     setup(props,context){
       const defaults = context.slots.default()
       defaults.forEach((tag)=>{
@@ -23,7 +29,13 @@
       const title = defaults.map((tag)=>{
         return tag.props.title
       })
-      return{defaults,title}
+      const current = computed(()=>{
+        return defaults.find((tag)=>tag.props.title === props.selected)
+      })
+      const select = (title) => {
+        context.emit('update:selected',title)
+      }
+      return{defaults,title,current,select}
     }
   }
 </script>

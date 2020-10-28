@@ -1,15 +1,21 @@
 <template>
   <div class="topnav">
     <div class="logo">
-      <i>Sprite</i>
+        <svg class="icon">
+          <router-link to="/">
+          <use xlink:href="#icon-hotSprite"></use>
+          </router-link>
+        </svg>
+      <div class="logo-name">
+        <router-link to="/"><strong><i>Sprite</i></strong></router-link>
+      </div>
     </div>
     <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
+      <li><router-link to="/Doc"><strong>文档</strong></router-link></li>
     </ul>
     <span class="toggleAside" @click="toggleAside">
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-sprite"></use>
+      <svg class="icon">
+        <use xlink:href="#icon-hotSprite"></use>
       </svg>
     </span>
   </div>
@@ -31,7 +37,7 @@
 
 <style lang="scss" scoped>
   .topnav {
-    background: #f4f5f6;
+    background: #ffe4cb;
     display: flex;
     padding: 16px;
     position: fixed;
@@ -40,16 +46,17 @@
     > .logo {
       max-width: 6em;
       margin-right: auto;
-      > i {
-        color: #39b54a;
-      }
     }
     > .menu {
       display: flex;
       white-space: nowrap;
       flex-wrap: nowrap;
       > li {
-        margin: 0 1em;
+        margin: 7px 1em;
+        color: #fa6a47;
+        > a:hover{
+          text-decoration: none;
+        }
       }
     }
     > .toggleAside{
@@ -59,10 +66,6 @@
       top: 50%;
       transform: translateY(-50%);
       display: none;
-      > .icon{
-        width: 30px;
-        height: 30px;
-      }
     }
     @media (max-width: 500px) {
       > .menu{
@@ -70,10 +73,25 @@
       }
       > .logo{
         margin: 0 auto;
+        > .icon{
+          display: none;
+        }
+        > .logo-name{
+          display: block;
+        }
       }
       >.toggleAside{
         display: inline-block;
       }
     }
+    @media (min-width: 50px) {
+      .logo-name{
+        display: none;
+      }
+    }
+  }
+  svg{
+    width: 34px;
+    height: 34px;
   }
 </style>

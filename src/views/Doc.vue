@@ -68,7 +68,7 @@
     }
   }
   aside {
-    background: lightblue;
+    background: linear-gradient(180deg, rgba(255,228,202,1) 0%, rgba(255,251,249,1) 100%);
     width: 150px;
     padding: 70px 16px 16px 16px;
     position: fixed;

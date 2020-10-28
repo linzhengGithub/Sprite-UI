@@ -1,5 +1,7 @@
 <template>
-  <div>Tab</div>
+  <div>
+    Tab组件
+  </div>
 </template>
 
 <script>

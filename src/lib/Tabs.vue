@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <div v-for="(t,index) in title" :key="index">{{t}}</div>
-    <component v-for="(c,index) in defaults " :key="index" :is="c"></component>
+  <div class="sprite-tabs">
+    <div class="sprite-tabs-nav">
+      <div class="sprite-tabs-nav-item" v-for="(t,index) in title" :key="index">{{t}}</div>
+    </div>
+    <div class="sprite-tabs-content">
+      <component class="sprite-tabs-content-item" v-for="(c,index) in defaults " :key="index" :is="c"></component>
+    </div>
   </div>
 </template>
 
@@ -25,5 +29,28 @@
 </script>
 
 <style lang="scss" scoped>
-
+  $blue: #40a9ff;
+  $color: #333;
+  $border-color: #d9d9d9;
+  .sprite-tabs {
+    &-nav {
+      display: flex;
+      color: $color;
+      border-bottom: 1px solid $border-color;
+      &-item {
+        padding: 8px 0;
+        margin: 0 16px;
+        cursor: pointer;
+        &:first-child {
+          margin-left: 0;
+        }
+        &.selected {
+          color: $blue;
+        }
+      }
+    }
+    &-content {
+      padding: 8px 0;
+    }
+  }
 </style>

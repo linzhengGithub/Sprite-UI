@@ -1,6 +1,6 @@
 <template>
   <div class="sprite-tabs">
-    <div class="sprite-tabs-nav">
+    <div class="sprite-tabs-nav" ref="container">
       <div class="sprite-tabs-nav-item" v-for="(t,index) in title" :key="index" :class="{selected: t === selected}" @click="select(t)" :ref="el => {if(el) navItems[index] = el}">{{t}}</div>
       <div class="sprite-tabs-nav-indicator" ref="indicator"></div>
     </div>
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import {computed,ref,onMounted} from 'vue'
+  import {computed,ref,onMounted,onUpdated} from 'vue'
   import Tab from './Tab.vue'
   export default {
     name: 'Tabs',
@@ -23,12 +23,19 @@
     setup(props,context){
       const navItems = ref([])
       const indicator = ref(null)
-      onMounted(()=>{
+      const container = ref(null)
+      const x = () => {
         const divs = navItems.value
         const result = divs.find(div => div.classList.contains('selected'))
         const {width} = result.getBoundingClientRect()
         indicator.value.style.width = width + 'px'
-      })
+        const {left:left1} = container.value.getBoundingClientRect()
+        const {left:left2} = result.getBoundingClientRect()
+        const left = left2 - left1
+        indicator.value.style.left = left + 'px'
+      }
+      onMounted(x)
+      onUpdated(x)
       const defaults = context.slots.default()
       defaults.forEach((tag)=>{
         if(tag.type !== Tab){
@@ -44,7 +51,7 @@
       const select = (title) => {
         context.emit('update:selected',title)
       }
-      return{defaults,title,current,select,navItems,indicator}
+      return{defaults,title,current,select,navItems,indicator,container}
     }
   }
 </script>
@@ -76,7 +83,7 @@
         background: $blue;
         left: 0;
         bottom: -1px;
-        width: 100px;
+        transition: left 250ms;
       }
     }
     &-content {

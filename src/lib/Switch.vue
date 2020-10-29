@@ -1,9 +1,7 @@
 <template>
-  <div>
     <button class="sprite-switch" :class="{'sprite-checked':value}" @click="toggle" :disabled="disabled">
       <span></span>
     </button>
-  </div>
 </template>
 
 <script>

@@ -83,7 +83,7 @@
   aside {
     background: linear-gradient(180deg, rgba(255,228,202,1) 0%, rgba(255,251,249,1) 100%);
     width: 150px;
-    padding: 70px 16px 16px 16px;
+    padding: 70px 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -91,10 +91,17 @@
     z-index: 1;
     > h2 {
       margin-bottom: 4px;
+      padding-left: 16px;
     }
     > ol {
       > li {
-        padding: 4px 0;
+        > a{
+          display: block;
+          padding: 4px 16px;
+        }
+        .router-link-active{
+          background: white;
+        }
       }
     }
   }

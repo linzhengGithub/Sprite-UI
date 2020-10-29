@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="sprite-switch" :class="{'sprite-checked':value}" @click="toggle">
+    <button class="sprite-switch" :class="{'sprite-checked':value}" @click="toggle" :disabled="disabled">
       <span></span>
     </button>
   </div>
@@ -10,7 +10,11 @@
   export default {
     name: 'Switch',
     props: {
-      value: Boolean
+      value: Boolean,
+      disabled:{
+        type:Boolean,
+        default:false
+      }
     },
     setup(props, context) {
       const toggle = () => {

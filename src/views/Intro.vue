@@ -1,16 +1,16 @@
 <template>
-  <article class="markdown-body" v-html="intro">
+  <article class="markdown-body" v-html="md">
 
   </article>
 </template>
 
 <script>
-  import intro from '../markdown/intro.md'
+  import md from '../markdown/intro.md'
   export default {
     name: 'Intro',
     data(){
       return {
-        intro
+        md
       }
     }
   }

@@ -1,17 +1,17 @@
 <template>
-  <article class="markdown-body" v-html="getStarted">
+  <article class="markdown-body" v-html="md">
 
 
   </article>
 </template>
 
 <script>
-  import getStarted from '../markdown/getStarted.md'
+  import md from '../markdown/getStarted.md'
   export default {
     name: 'GetStarted',
     data(){
       return{
-        getStarted
+        md
       }
     }
   }

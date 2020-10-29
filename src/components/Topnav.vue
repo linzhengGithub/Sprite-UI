@@ -37,7 +37,7 @@
 
 <style lang="scss" scoped>
   .topnav {
-    background: #ffe4cb;
+    background: linear-gradient(90deg, rgba(255,228,202,1) 0%, rgba(255,251,249,1) 100%);;
     display: flex;
     padding: 16px;
     position: fixed;

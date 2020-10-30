@@ -1,19 +1,20 @@
 <template>
   <div class="demo">
-    <h2>常规用法</h2>
+    <h2>{{component.__sourceCodeTitle}}</h2>
     <div class="demo-component">
       <component :is="component"/>
     </div>
     <div class="demo-actions">
-      <Button>查看代码</Button>
+      <Button @click="toggle">查看代码</Button>
     </div>
-    <div class="demo-code">
-      <pre class="language-html" v-html="Prism.highlight(component.__demo,Prism.languages.html,'html')"/>
+    <div class="demo-code" v-if="codeVisible">
+      <pre class="language-html" v-html="html"/>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+  import {ref,computed} from 'vue'
   import 'prismjs';
   import 'prismjs/themes/prism-solarizedlight.css';
   import Button from '../lib/Button.vue';
@@ -22,10 +23,17 @@
     name: 'Demo',
     components: {Button},
     props: {
-      component: Object
+      component: Object,
     },
-    setup() {
-      return {Prism, Button};
+    setup(props) {
+      const codeVisible = ref(false)
+      const toggle = () => {
+        codeVisible.value = !codeVisible.value
+      }
+      const html = computed(()=>{
+        return Prism.highlight(props.component.__sourceCode,Prism.languages.html,'html')
+      })
+      return {Prism, Button,toggle,codeVisible,html};
     }
   };
 </script>

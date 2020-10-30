@@ -1,22 +1,33 @@
 <template>
-  <div>
-    <h1>Switch 组件示例 </h1>
-    <Demo :component="Switch1Demo"/>
-    <Demo :component="Switch2Demo"/>
+  <div class="demo">
+    <h2>常规用法</h2>
+    <div class="demo-component">
+      <component :is="component"/>
+    </div>
+    <div class="demo-actions">
+      <Button>查看代码</Button>
+    </div>
+    <div class="demo-code">
+      <pre class="language-html" v-html="Prism.highlight(component.__demo,Prism.languages.html,'html')"/>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-  import Switch1Demo from './Switch1.demo.vue'
-  import Switch2Demo from './Switch2.demo.vue'
-  import Demo from './Demo.vue';
+  import 'prismjs';
+  import 'prismjs/themes/prism-solarizedlight.css';
+  import Button from '../lib/Button.vue';
+  const Prism = (window as any).Prism;
   export default {
-    name: 'SwitchDemo',
-    components: {Demo},
+    name: 'Demo',
+    components: {Button},
+    props: {
+      component: Object
+    },
     setup() {
-      return {Switch1Demo, Switch2Demo}
+      return {Prism, Button};
     }
-  }
+  };
 </script>
 
 <style lang="scss" scoped>

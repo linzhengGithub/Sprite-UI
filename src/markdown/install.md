@@ -7,5 +7,5 @@ npm install king-ui
 ```$xslt
 yarn add king-ui
 ```
-下一节：[开始使用](/doc/get-started)
+下一节：[开始使用](#/doc/get-started)
 

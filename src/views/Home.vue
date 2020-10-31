@@ -26,7 +26,7 @@
               <use xlink:href="#icon-ts"></use>
             </svg>
             <h3>基于 TypeScript </h3>
-            <p>源代码采用 TypeScript 书写（非严格检查）</p>
+            <p>源代码采用 TypeScript 书写</p>
           </li>
           <li>
             <svg class="icon">
@@ -64,6 +64,7 @@
     > .banner-main {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       > .text{
         text-align: center;
       }
@@ -87,21 +88,28 @@
   }
   .features {
     margin: 64px auto;
-    width: 400px;
+    padding: 0 14px;
     @media (min-width: 800px) {
       width: 800px;
+      >ul{
+        >li{
+          width: 50%;
+        }
+      }
     }
     @media (min-width: 1200px) {
-      width: 1300px;
+      width: 1200px;
       > ul{
         margin-left: 100px;
+        > li{
+          width: 33.333%;
+        }
       }
     }
     > ul {
       display: flex;
       flex-wrap: wrap;
       > li {
-        width: 400px;
         margin: 16px 0;
         display: grid;
         justify-content: start;
@@ -124,8 +132,6 @@
       }
     }
   }
-
-
   svg {
     width: 64px;
     height: 64px;

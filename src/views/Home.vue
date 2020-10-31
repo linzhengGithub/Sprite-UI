@@ -9,7 +9,7 @@
         </div>
         <p class="actions">
           <a href="https://github.com/linzhengGithub">Github</a>
-          <router-link to="/doc">Start</router-link>
+          <router-link to="/doc/intro">Start</router-link>
         </p>
       </div>
       <div class="features">

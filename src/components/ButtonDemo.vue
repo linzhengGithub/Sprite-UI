@@ -7,6 +7,7 @@
     <Demo :component="Button4Demo"/>
     <Demo :component="Button5Demo"/>
   </div>
+  <Next :nextSection="`/doc/dialog`">Dialog</Next>
 
 
 
@@ -29,3 +30,8 @@
     }
   }
 </script>
+
+<style lang="scss">
+
+
+</style>

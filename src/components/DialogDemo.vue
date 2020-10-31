@@ -3,6 +3,7 @@
   <Demo :component="Dialog1Demo"/>
   <Demo :component="Dialog2Demo"/>
   <Demo :component="Dialog3Demo"/>
+  <Next :nextSection="`/doc/tabs`">Tabs</Next>
 </template>
 
 <script>

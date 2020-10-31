@@ -4,6 +4,7 @@
     <Demo :component="Switch1Demo"/>
     <Demo :component="Switch2Demo"/>
   </div>
+  <Next :nextSection="`/doc/button`">Button</Next>
 </template>
 
 <script lang="ts">

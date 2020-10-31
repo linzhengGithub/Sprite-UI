@@ -24,6 +24,8 @@ import {Button, Tabs, Switch, Dialog} from "king-ui"
 </script>
 ```
 
+[进入组件](#/doc/switch)
+
 
 
  

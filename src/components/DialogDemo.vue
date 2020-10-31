@@ -1,60 +1,20 @@
 <template>
-  <h1>示例1</h1>
-  <div>
-    <Button @click="toggle">Dialog</Button>
-    <Dialog v-model:visible="x" :close-onclick-overlay="false"
-    :ok="f1" :cancel="f2">
-      <template v-slot:title>
-        <strong>温馨提示</strong>
-      </template>
-      <template v-slot:content>
-        <div>这是一个对话框</div>
-        <div>支持 <i>visible、ok、cancel、title、自定义HTML内容</i> </div>
-      </template>
-    </Dialog>
-  </div>
-  <h1>实例2</h1>
-  <div>
-    <Button @click="showDialog">showDialog</Button>
-  </div>
+  <h1>Dialog 示例</h1>
+  <Demo :component="Dialog1Demo"/>
+  <Demo :component="Dialog2Demo"/>
+  <Demo :component="Dialog3Demo"/>
 </template>
 
 <script>
-  import Dialog from '../lib/Dialog.vue'
-  import Button from '../lib/Button.vue'
-  import {ref} from 'vue'
-  import {openDialog} from '../lib/openDialog'
+  import Dialog1Demo from './Dialogs.demo/Dialog1.demo.vue'
+  import Dialog2Demo from './Dialogs.demo/Dialog2.demo.vue'
+  import Dialog3Demo from './Dialogs.demo/Dialog3.demo.vue'
+  import Demo from './Demo.vue'
   export default {
     name: 'DialogDemo',
-    components: {Button, Dialog},
+    components: {Demo},
     setup(){
-      const x = ref(false)
-      const toggle = () => {
-        x.value = !x.value
-      }
-      const f1 = () => {
-        return false
-      }
-      const f2 = () => {
-      }
-      const showDialog = () => {
-        openDialog({
-          title:'温馨提示',
-          content:'这是一个对话框.',
-          ok:()=>{
-            console.log('ok')
-          },
-          cancel:()=>{
-            console.log('cancel')
-          },
-          closeOnclickOverlay:false
-        })
-      }
-      return {x,toggle,f1,f2,showDialog}
+      return {Dialog1Demo,Dialog2Demo,Dialog3Demo}
     }
   }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

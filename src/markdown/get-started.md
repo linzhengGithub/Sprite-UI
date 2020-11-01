@@ -4,7 +4,8 @@
 
 然后在你的代码中写入下面的代码
 ```$xslt
-import {Button, Tabs, Switch, Dialog} from "sprite-ui"
+import {Button, Tabs, Switch, Dialog, openDialog} from "sprite-ui"
+import 'sprite-ui/dist/lib/sprite.css'
 ```
 
 ## Vue 单文件组件

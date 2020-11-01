@@ -1,11 +1,11 @@
 # 安装
 打开终端运行下列命令：
 ```$xslt
-npm install king-ui
+npm install sprite-ui
 ```
 或
 ```$xslt
-yarn add king-ui
+yarn add sprite-ui
 ```
 下一节：[开始使用](#/doc/get-started)
 

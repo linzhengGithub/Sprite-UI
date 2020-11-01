@@ -4,7 +4,7 @@
 
 然后在你的代码中写入下面的代码
 ```$xslt
-import {Button, Tabs, Switch, Dialog} from "king-ui"
+import {Button, Tabs, Switch, Dialog} from "sprite-ui"
 ```
 
 ## Vue 单文件组件
@@ -17,7 +17,7 @@ import {Button, Tabs, Switch, Dialog} from "king-ui"
     </div>
 <template>
 <script>
-  import {Button} from "king-ui"
+  import {Button} from "sprite-ui"
   export default {
     components: {Button}
   }

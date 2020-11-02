@@ -6,9 +6,10 @@ import {router} from './router';
 import 'github-markdown-css'
 import Markdown from './components/Markdown.vue';
 import Next from './components/Next.vue'
+import plugin from './plugin.js'
 
 const app = createApp(App)
-app.use(router)
+app.use(router).use(plugin)
 app.mount('#app')
 app.component('Markdown',Markdown)
 app.component('Next',Next)

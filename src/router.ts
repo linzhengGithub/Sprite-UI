@@ -5,6 +5,7 @@ import SwitchDemo from './components/SwitchDemo.vue'
 import ButtonDemo from './components/ButtonDemo.vue'
 import DialogDemo from './components/DialogDemo.vue'
 import TabsDemo from './components/TabsDemo.vue'
+import InputDemo from './components/InputDemo.vue'
 import Markdown from './components/Markdown.vue';
 import intro from './markdown/intro.md'
 import getStarted from './markdown/get-started.md'
@@ -29,7 +30,8 @@ export const router = createRouter({ //创建路由
         {path:'switch',component: SwitchDemo},
         {path:'button',component: ButtonDemo},
         {path:'dialog',component: DialogDemo},
-        {path:'tabs',component: TabsDemo}
+        {path:'tabs',component: TabsDemo},
+        {path:'input',component: InputDemo},
       ]
     }
   ]

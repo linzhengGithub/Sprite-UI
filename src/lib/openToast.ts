@@ -12,7 +12,13 @@ export const openToast = (options) => {
     render(){
       return h(
         Toast,
-        {visible:true},{content}
+        {visible:true,
+          'onUpdate:visible':(newVisible)=>{
+            if (newVisible === false){
+              close()
+            }
+          }
+        },{content}
       )
     }
   })

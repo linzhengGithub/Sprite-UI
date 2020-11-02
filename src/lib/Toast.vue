@@ -28,9 +28,9 @@
         default: 'message'
       }
     },
-    setup(){
+    setup(props,context){
       const close = () => {
-
+        context.emit('update:visible',false)
       }
       return {close}
     }

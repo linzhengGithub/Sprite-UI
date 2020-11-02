@@ -1,14 +1,21 @@
 <template>
-  <Input value=""/>
-  <Input value="禁用" disabled/>
-  <Input value="只读" readonly/>
+  <h1>Input 组件示例</h1>
+  <Demo :component="Input1Demo"/>
+  <Demo :component="Input2Demo"/>
+  <Demo :component="Input3Demo"/>
 </template>
 
 <script>
-  import Input from '../lib/Input.vue'
+  import Demo from './Demo.vue'
+  import Input1Demo from './Inputs.demo/Input1.demo.vue'
+  import Input2Demo from './Inputs.demo/Input2.demo.vue'
+  import Input3Demo from './Inputs.demo/Input3.demo.vue'
   export default {
     name: 'InputDemo',
-    components:{Input},
+    components:{Demo},
+    setup(){
+      return{Input1Demo,Input2Demo,Input3Demo}
+    }
   }
 </script>
 

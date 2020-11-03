@@ -13,7 +13,10 @@
     setup(){
       const showToast = () => {
         openToast({
-          content:'Hello Sprite-ui'
+          message:'Hello Sprite-ui',
+          position: 'bottom',
+          closeVisible: false,
+          autoClose: 10
         })
       }
       return {showToast}

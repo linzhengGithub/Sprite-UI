@@ -1,26 +1,29 @@
 import Toast from './Toast.vue';
-import {createApp,h} from 'vue'
+import {createApp, h} from 'vue';
+
 export const openToast = (options) => {
-  const {content} = options
-  const div = document.createElement('div')
-  document.body.appendChild(div)
+  const {message, position, closeVisible,autoClose} = options;
+  const div = document.createElement('div');
+  document.body.appendChild(div);
   const close = () => {
-    app.unmount(div)
-    div.remove()
-  }
+    app.unmount(div);
+    div.remove();
+  };
   const app = createApp({
-    render(){
+    render() {
       return h(
         Toast,
-        {visible:true,
-          'onUpdate:visible':(newVisible)=>{
-            if (newVisible === false){
-              close()
+        {
+          visible: true,
+          'onUpdate:visible': (newVisible) => {
+            if (newVisible === false) {
+              close();
             }
-          }
-        },{content}
-      )
+          },
+          position, closeVisible,autoClose
+        }, {message}
+      );
     }
-  })
-  app.mount(div)
-}
+  });
+  app.mount(div);
+};

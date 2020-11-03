@@ -7,6 +7,7 @@ import DialogDemo from './components/DialogDemo.vue'
 import TabsDemo from './components/TabsDemo.vue'
 import InputDemo from './components/InputDemo.vue'
 import ToastDemo from './components/ToastDemo.vue'
+import CollapseDemo from './components/CollapseDemo.vue';
 import Markdown from './components/Markdown.vue';
 import intro from './markdown/intro.md'
 import getStarted from './markdown/get-started.md'
@@ -34,6 +35,7 @@ export const router = createRouter({ //创建路由
         {path:'tabs',component: TabsDemo},
         {path:'input',component: InputDemo},
         {path:'toast',component: ToastDemo},
+        {path:'collapse',component: CollapseDemo},
       ]
     }
   ]

@@ -3,11 +3,13 @@
     <Teleport to="body">
       <div class="sprite-toast-wrapper" :class="`position-${position}`">
         <div class="sprite-toast">
-          <svg class="icon">
-            <use xlink:href="#icon-message"></use>
-          </svg>
+          <div class="sprite-toast-icon">
+            <svg class="icon"><use xlink:href="#icon-message"></use></svg>
+          </div>
           <slot name="message"></slot>
-          <span class="sprite-toast-close" @click="close" v-if="closeVisible"></span>
+          <div class="sprite-toast-border">
+            <span class="sprite-toast-close" @click="close" v-if="closeVisible"></span>
+          </div>
         </div>
       </div>
     </Teleport>
@@ -63,6 +65,7 @@
 <style lang="scss" scoped>
   $font-size: 14px;
   $toast-min-height: 40px;
+  $toast-min-width: 200px;
   $toast-bg: #f9f8f4;
   @keyframes fade-in {
     0% {opacity: 0;}
@@ -80,11 +83,20 @@
   }
 
   .sprite-toast {
-    line-height: 1.8;min-height: $toast-min-height;color: black;display: flex;align-items: center;
+    line-height: 1.8;min-height: $toast-min-height;min-width:$toast-min-width;color: black;
+    display: flex;align-items: center;justify-content: center;
     background: $toast-bg;border-radius: 4px;padding: 0 16px;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.20);
-    > .icon {
-      margin-right: 10px;
+    &-icon{
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      padding-right:20px ;
+
+    }
+    &-border{
+      width: 20px;
+      height: 20px;
     }
     &-wrapper {
       position: fixed;

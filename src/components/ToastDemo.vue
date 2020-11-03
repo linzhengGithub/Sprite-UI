@@ -1,29 +1,20 @@
 <template>
   <h1>Toast 组件示例</h1>
-  <Button @click="showToast">showToast</Button>
+  <Demo :component="Toast1Demo"></Demo>
+  <Demo :component="Toast2Demo"></Demo>
+  <Demo :component="Toast3Demo"></Demo>
 </template>
 
-<script>
-  import Toast from '../lib/Toast.vue'
-  import Button from '../lib/Button.vue'
-  import {openToast} from '../lib/openToast'
+<script lang="ts">
+  import Toast1Demo from './Toasts.demo/Toast1.demo.vue'
+  import Toast2Demo from './Toasts.demo/Toast2.demo.vue'
+  import Toast3Demo from './Toasts.demo/Toast3.demo.vue'
+  import Demo from './Demo.vue'
   export default {
     name: 'ToastDemo',
-    components:{Toast,Button,openToast},
+    components:{Demo},
     setup(){
-      const showToast = () => {
-        openToast({
-          message:'Hello Sprite-ui',
-          position: 'bottom',
-          closeVisible: false,
-          autoClose: 10
-        })
-      }
-      return {showToast}
+      return {Toast1Demo,Toast2Demo,Toast3Demo}
     }
   }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

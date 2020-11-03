@@ -1,5 +1,7 @@
 <template>
-  <div>手风琴</div>
+  <div class="sprite-collapse">
+    <slot></slot>
+  </div>
 </template>
 
 <script lang="ts">
@@ -9,5 +11,10 @@
 </script>
 
 <style lang="scss" scoped>
-
+  $grey:#d9d9d9;
+  $border-radius: 4px;
+  .sprite-collapse {
+    border: 1px solid $grey;
+    border-radius: $border-radius;
+  }
 </style>

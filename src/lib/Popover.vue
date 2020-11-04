@@ -1,6 +1,6 @@
 <template>
   <div class="sprite-popover" @click="xxx">
-    <div class="sprite-popover-content"  v-if="visible" @click.stop>
+    <div class="sprite-popover-content" ref="popoverContent" v-if="visible">
       <slot name="content"></slot>
     </div>
     <span>
@@ -14,23 +14,22 @@
   export default {
     name: 'Popover',
     setup(){
-      const visible = ref(false)
+      const visible = ref<Boolean>(false)
+      const popoverContent = ref<HTMLDivElement>(null)
       const xxx = () => {
         visible.value = !visible.value
         if(visible.value === true){
           setTimeout(()=>{
+            document.body.appendChild(popoverContent.value)
             let eventHandler = () => {
               visible.value = false
-              console.log('document');
               document.removeEventListener('click',eventHandler)
             }
             document.addEventListener('click',eventHandler)
           })
-        }else{
-          console.log('vm');
         }
       }
-      return {visible,xxx}
+      return {visible,xxx,popoverContent}
     }
   };
 </script>

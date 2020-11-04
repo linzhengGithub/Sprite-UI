@@ -1,21 +1,18 @@
 <template>
-  <Collapse>
-    <CollapseItem title="标题1" selected>内容1</CollapseItem>
-    <CollapseItem title="标题2" selected>内容2</CollapseItem>
-    <CollapseItem title="标题3">内容3</CollapseItem>
-  </Collapse>
+  <h1>Collapse 组件示例</h1>
+  <Demo :component="Collapse1Demo"></Demo>
+  <Demo :component="Collapse2Demo"></Demo>
 </template>
 
 <script lang="ts">
-  import Collapse from '../lib/Collapse.vue';
-  import CollapseItem from '../lib/Collapse-item.vue';
-  import {ref} from 'vue'
+  import Demo from './Demo.vue';
+  import Collapse1Demo from './Collapses.demo/Collapse1.demo.vue'
+  import Collapse2Demo from './Collapses.demo/Collapse2.demo.vue'
   export default {
     name: 'CollapseDemo',
-    components:{Collapse,CollapseItem},
+    components:{Demo},
     setup(){
-      const x = ref('标题1')
-      return{x}
+      return{Collapse1Demo,Collapse2Demo}
     }
   };
 </script>

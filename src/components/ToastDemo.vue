@@ -3,6 +3,7 @@
   <Demo :component="Toast1Demo"></Demo>
   <Demo :component="Toast2Demo"></Demo>
   <Demo :component="Toast3Demo"></Demo>
+  <Next :nextSection="`/doc/collapse`">Collapse</Next>
 </template>
 
 <script lang="ts">

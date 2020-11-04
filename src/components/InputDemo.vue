@@ -3,6 +3,7 @@
   <Demo :component="Input1Demo"/>
   <Demo :component="Input2Demo"/>
   <Demo :component="Input3Demo"/>
+  <Next :nextSection="`/doc/toast`">Toast</Next>
 </template>
 
 <script>

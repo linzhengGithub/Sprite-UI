@@ -1,16 +1,16 @@
 <template>
-  <div class="sprite-collapse-item">
-    <div class="sprite-collapse-item-title" @click="controlOpen">
-      {{title}}
+  <div class="sprite-collapse-item" :single="single" v-for="(t,index) in array" :key="index" @click="select(t)">
+    <div class="sprite-collapse-item-title" :class="{selected:t === selected}">
+      {{t}}
     </div>
-    <div class="sprite-collapse-item-content" v-if="open">
-      <slot></slot>
+    <div class="sprite-collapse-item-content" v-if="open" v-for="(content,index) in child" :key="index" >
+      {{content}}
     </div>
   </div>
 </template>
 
 <script lang="ts">
-  import {ref} from 'vue'
+  import {ref,onMounted} from 'vue'
   export default {
     name: 'Collapse-item',
     props:{
@@ -21,14 +21,37 @@
       open:{
         type: Boolean,
         default:false
-      }
+      },
+      single:{
+        type:Boolean,
+        default:false
+      },
+      selected:{
+        type:Boolean,
+        default:false
+      },
     },
-    setup(){
+    setup(props,context){
       const open = ref(false)
-      const controlOpen = () => {
-        open.value = !open.value
+      const defaults = context.slots.default()
+      const child = defaults.map((tag)=>{
+        return tag.children
+      })
+      const array = []
+      const z = props.title
+      array.push(z)
+      const select = (title) => {
+        if(title === props.title){
+          open.value = !open.value
+        }
       }
-      return {open,controlOpen}
+      const x = ()=>{
+        if (props.selected){
+          open.value = true
+        }
+      }
+      onMounted(x)
+      return {open,select,defaults,child,z,array}
     }
   };
 </script>
@@ -42,7 +65,9 @@
       margin-top: -1px;margin-left: -1px;margin-right: -1px;
       min-height:32px;display: flex;align-items:center;padding: 0 8px;
     }
-    &-content{padding: 8px;}
+    &-content{
+      padding: 8px;
+    }
     &:first-child{
       > .sprite-collapse-item-title{border-top-left-radius: $border-radius;border-top-right-radius: $border-radius;}
     }

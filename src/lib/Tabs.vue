@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
   import {computed,ref,onMounted,onUpdated} from 'vue'
   import Tab from './Tab.vue'
   export default {

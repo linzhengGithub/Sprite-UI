@@ -1,7 +1,25 @@
 <template>
-  <Popover>
+  <Popover position="top">
     <template v-slot:content>
-      Popover内容
+      Hi Sprite-ui
+    </template>
+    <Button>点我</Button>
+  </Popover>
+  <Popover position="bottom">
+    <template v-slot:content>
+      Hi Sprite-ui
+    </template>
+    <Button>点我</Button>
+  </Popover>
+  <Popover position="left">
+    <template v-slot:content>
+      Hi Sprite-ui
+    </template>
+    <Button>点我</Button>
+  </Popover>
+  <Popover position="right">
+    <template v-slot:content>
+      Hi Sprite-ui
     </template>
     <Button>点我</Button>
   </Popover>

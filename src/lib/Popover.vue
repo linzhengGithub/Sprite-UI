@@ -3,7 +3,7 @@
     <div class="sprite-popover-content" ref="popoverContent" v-if="visible">
       <slot name="content"></slot>
     </div>
-    <span>
+    <span ref="popoverBtn">
       <slot></slot>
     </span>
   </div>
@@ -16,11 +16,15 @@
     setup(){
       const visible = ref<Boolean>(false)
       const popoverContent = ref<HTMLDivElement>(null)
+      const popoverBtn = ref<HTMLDivElement>(null)
       const xxx = () => {
         visible.value = !visible.value
         if(visible.value === true){
           setTimeout(()=>{
             document.body.appendChild(popoverContent.value)
+            let {left,top} = popoverBtn.value.getBoundingClientRect()
+            popoverContent.value.style.left = left + window.scrollX + 'px'
+            popoverContent.value.style.top = top + window.scrollY + 'px'
             let eventHandler = () => {
               visible.value = false
               document.removeEventListener('click',eventHandler)
@@ -29,7 +33,7 @@
           })
         }
       }
-      return {visible,xxx,popoverContent}
+      return {visible,xxx,popoverContent,popoverBtn}
     }
   };
 </script>
@@ -42,7 +46,11 @@
     margin-top: 100px;
     &-content{
       position: absolute;
-      bottom: 100%;
+      padding-bottom: 11px;
+      transform: translateY(-100%);
     }
+  }
+  .sprite-popover-content{
+
   }
 </style>

@@ -2,6 +2,7 @@
   <h1>Collapse 组件示例</h1>
   <Demo :component="Collapse1Demo"></Demo>
   <Demo :component="Collapse2Demo"></Demo>
+  <Next :nextSection="`/doc/popover`">Popover</Next>
 </template>
 
 <script lang="ts">

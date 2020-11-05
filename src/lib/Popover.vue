@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-  import {ref,onMounted,onUnmounted} from 'vue';
+  import {ref,onMounted} from 'vue';
 
   export default {
     name: 'Popover',
@@ -82,7 +82,6 @@
         }
       }
       onMounted(judgment)
-      onUnmounted(judgment)
       return {visible, onClick,popover, popoverContent, popoverBtn};
     }
   };
@@ -95,7 +94,6 @@
     display: inline-block;
     vertical-align: top;
     position: relative;
-    margin-top: 100px;
     &-content {
       position: absolute;
       border: 1px solid $border-color;padding: 0.5em 1em;

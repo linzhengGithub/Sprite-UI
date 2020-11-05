@@ -6,7 +6,7 @@
 
 *以下面的引用组件方法为主
 ```$xslt
-import {Button, Tabs, Tab, Switch, Dialog, openDialog, Input, Toast, Collapse, Collapse-item} from "sprite-ui"
+import {Button, Tabs, Tab, Switch, Dialog, openDialog, Input, Toast, Collapse, Collapse-item, Popover} from "sprite-ui"
 import 'sprite-ui/dist/lib/sprite.css'
 ```
 

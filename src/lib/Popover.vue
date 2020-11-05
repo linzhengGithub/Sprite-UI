@@ -1,5 +1,5 @@
 <template>
-  <div class="sprite-popover" @click="onClick">
+  <div class="sprite-popover" ref="popover">
     <div class="sprite-popover-content" ref="popoverContent" v-if="visible" :class="{[`position-${position}`] : true}">
       <slot name="content"></slot>
     </div>
@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-  import {ref} from 'vue';
+  import {ref,onMounted} from 'vue';
 
   export default {
     name: 'Popover',
@@ -21,10 +21,17 @@
         validator(value){
           return ['top','bottom','left','right'].indexOf(value) >= 0
         }
+      },
+      trigger:{
+        default: 'click',
+        validator(value){
+          return ['click','hover'].indexOf(value) >= 0
+        }
       }
     },
     setup(props) {
       const visible = ref<Boolean>(false);
+      const popover = ref<HTMLDivElement>(null)
       const popoverContent = ref<HTMLDivElement>(null);
       const popoverBtn = ref<HTMLDivElement>(null);
       const positionPopoverContent = () => {
@@ -66,7 +73,15 @@
           }
         }
       };
-      return {visible, onClick, popoverContent, popoverBtn};
+      onMounted(()=>{
+        if(props.trigger === 'click'){
+          popover.value.addEventListener('click',onClick)
+        }else{
+          popover.value.addEventListener('mouseenter',open)
+          popover.value.addEventListener('mouseleave',close)
+        }
+      })
+      return {visible, onClick,popover, popoverContent, popoverBtn};
     }
   };
 </script>

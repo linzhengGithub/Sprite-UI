@@ -23,6 +23,32 @@
     </template>
     <Button>点我</Button>
   </Popover>
+  <div>
+    <Popover position="top" trigger="hover">
+      <template v-slot:content>
+        Hi Sprite-ui
+      </template>
+      <Button>点我</Button>
+    </Popover>
+    <Popover position="bottom" trigger="hover">
+      <template v-slot:content>
+        Hi Sprite-ui
+      </template>
+      <Button>点我</Button>
+    </Popover>
+    <Popover position="left" trigger="hover">
+      <template v-slot:content>
+        Hi Sprite-ui
+      </template>
+      <Button>点我</Button>
+    </Popover>
+    <Popover position="right" trigger="hover">
+      <template v-slot:content>
+        Hi Sprite-ui
+      </template>
+      <Button>点我</Button>
+    </Popover>
+  </div>
 </template>
 
 <script lang="ts">

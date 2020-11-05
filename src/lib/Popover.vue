@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-  import {ref,onMounted} from 'vue';
+  import {ref,onMounted,onUnmounted} from 'vue';
 
   export default {
     name: 'Popover',
@@ -73,14 +73,16 @@
           }
         }
       };
-      onMounted(()=>{
+      const judgment = () => {
         if(props.trigger === 'click'){
           popover.value.addEventListener('click',onClick)
         }else{
           popover.value.addEventListener('mouseenter',open)
           popover.value.addEventListener('mouseleave',close)
         }
-      })
+      }
+      onMounted(judgment)
+      onUnmounted(judgment)
       return {visible, onClick,popover, popoverContent, popoverBtn};
     }
   };
